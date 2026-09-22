@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import brandIcon from '../assets/caja-abierta.svg';
+import brandIcon from '../assets/sellaper-logo.svg';
 import githubIcon from '../assets/github.svg';
 import whatsappIcon from '../assets/whatsapp.svg';
 import linkedinIcon from '../assets/linkedin.svg';
@@ -16,7 +16,8 @@ const Footer = () => {
             <div className="brand-mark">
               <img
                 src={brandIcon}
-                alt="Logo de la marca Sellaper con un icono de caja abierta"
+                alt=""
+                aria-hidden="true"
               />
             </div>
             <div className="brand-text">

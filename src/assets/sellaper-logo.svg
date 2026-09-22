@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Sellaper - bolsa azul</title>
+  <defs>
+    <linearGradient id="handle" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#19c7f3"/>
+      <stop offset="0.55" stop-color="#0787f7"/>
+      <stop offset="1" stop-color="#0754db"/>
+    </linearGradient>
+    <linearGradient id="bag" x1="0.18" y1="0.05" x2="0.82" y2="1">
+      <stop offset="0" stop-color="#43d8f4"/>
+      <stop offset="0.48" stop-color="#20bdf0"/>
+      <stop offset="1" stop-color="#2ed0ed"/>
+    </linearGradient>
+    <linearGradient id="sTop" x1="0" y1="0" x2="1" y2="0.8">
+      <stop offset="0" stop-color="#087ef6"/>
+      <stop offset="1" stop-color="#0864ec"/>
+    </linearGradient>
+    <linearGradient id="sBottom" x1="0.05" y1="0.15" x2="0.9" y2="0.95">
+      <stop offset="0" stop-color="#0730ae"/>
+      <stop offset="0.5" stop-color="#0647d2"/>
+      <stop offset="1" stop-color="#1dc4ed"/>
+    </linearGradient>
+    <clipPath id="bagClip">
+      <path d="M104 177 Q108 153 134 153 H378 Q404 153 408 177 L447 405 Q453 440 417 440 H95 Q59 440 65 405 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- Handle -->
+  <path d="M171 153 V126 C171 78 208 43 256 43 C304 43 341 78 341 126 V153"
+        fill="none" stroke="url(#handle)" stroke-width="32" stroke-linecap="round"/>
+
+  <!-- Bag -->
+  <path d="M104 177 Q108 153 134 153 H378 Q404 153 408 177 L447 405 Q453 440 417 440 H95 Q59 440 65 405 Z"
+        fill="url(#bag)"/>
+
+  <!-- Stylized S -->
+  <g clip-path="url(#bagClip)">
+    <path d="M74 170
+             C90 237 132 282 199 282
+             H323
+             C351 282 371 294 382 315
+             C393 337 390 365 374 382
+             C358 400 333 406 308 397
+             L191 354
+             C158 342 128 326 104 305
+             C82 286 67 263 58 238 Z"
+          fill="#39c9f2" opacity=".98"/>
+    <path d="M194 244
+             C179 239 163 242 151 251
+             C136 263 131 284 138 302
+             C144 318 157 328 174 334
+             L354 399
+             C376 407 398 398 409 380
+             C420 361 416 336 399 322
+             C392 316 383 311 373 307 Z"
+          fill="url(#sTop)"/>
+    <path d="M64 292
+             C88 330 126 354 173 371
+             L250 399
+             C280 410 298 422 306 440
+             H94
+             C59 440 58 413 64 382 Z"
+          fill="url(#sBottom)"/>
+    <path d="M306 440
+             C297 421 280 409 250 399
+             L173 371
+             C147 362 123 351 103 337
+             C127 382 168 408 222 427
+             L258 440 Z"
+          fill="#0872ee" opacity=".85"/>
+  </g>
+</svg>

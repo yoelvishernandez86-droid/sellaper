@@ -1,50 +1,16 @@
-:root {
-  --sellaper-green: #1e7d5b;
-  --sellaper-green-dark: #145d43;
-  --sellaper-green-soft: #dfeee7;
-  --sellaper-text: #1f2d2a;
-  --sellaper-muted: #63736c;
-  --sellaper-border: #e7ece8;
-  --sellaper-light: #f5f6f4;
-  --sellaper-white: #ffffff;
-  --sellaper-shadow: 0 8px 22px rgba(26, 40, 33, 0.08);
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: Inter, "Segoe UI", sans-serif;
-  background: #f4f3f1;
-  color: var(--sellaper-text);
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-button,
-input {
-  font: inherit;
-}
-
-/* Shared base rules above stay unchanged; the new design is scoped below. */
 .site-header,
 .site-footer {
-  --chrome-green: #008458;
+  --chrome-green: var(--sellaper-green);
   --chrome-green-dark: #006b47;
-  --chrome-ink: #111e29;
-  --chrome-muted: #626b7b;
-  --chrome-border: #e7eaf0;
+  --chrome-ink: var(--sellaper-text);
+  --chrome-muted: var(--sellaper-muted);
+  --chrome-border: var(--sellaper-border);
   --chrome-icon-filter: brightness(0) saturate(100%) invert(9%) sepia(16%) saturate(1482%) hue-rotate(164deg) brightness(96%) contrast(94%);
   color: var(--chrome-ink);
   background: #fff;
   font-family: Inter, "Segoe UI", sans-serif;
   line-height: 1.5;
-  padding-inline: clamp(16px, 3.2vw, 48px);
+  padding-inline: clamp(20px, 4vw, 48px);
 }
 
 .site-header .header-inner,
@@ -62,51 +28,49 @@ input {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto;
   align-items: center;
-  gap: 28px;
-  min-height: 80px;
-  padding-block: 12px;
+  gap: 24px;
+  min-height: 68px;
+  padding-block: 8px;
 }
 
 .site-header .brand,
 .site-footer .footer-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
 }
 
 :is(.site-header, .site-footer) .brand-mark {
   display: grid;
   place-items: center;
-  flex: 0 0 38px;
-  width: 38px;
-  height: 40px;
-  border-radius: 9px;
-  background: var(--chrome-green);
+  flex: 0 0 44px;
+  width: 44px;
+  height: 48px;
 }
 
 :is(.site-header, .site-footer) .brand-mark img {
-  width: 26px;
-  height: 26px;
-  filter: brightness(0) invert(1);
+  width: 48px;
+  height: 48px;
+  max-width: none;
 }
 
 :is(.site-header, .site-footer) .brand-text {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 :is(.site-header, .site-footer) .brand-name {
   color: var(--chrome-ink);
   font-size: 32px;
   font-weight: 800;
-  letter-spacing: -1.6px;
+  letter-spacing: -1.7px;
   line-height: 1;
 }
 
 :is(.site-header, .site-footer) .brand-subtitle {
   color: var(--chrome-muted);
-  font-size: 10px;
+  font-size: 9px;
   line-height: 1.4;
 }
 
@@ -115,7 +79,7 @@ input {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 4px 24px;
+  gap: 4px 26px;
   min-width: 0;
 }
 
@@ -125,7 +89,7 @@ input {
   align-items: center;
   min-height: 44px;
   color: var(--chrome-ink);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 500;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -140,7 +104,8 @@ input {
   font-weight: 600;
 }
 
-.site-header .nav-link.active::after {
+.site-header .nav-link:hover::after,
+.site-header .nav-link:focus-visible::after {
   content: "";
   position: absolute;
   inset-inline: 0;
@@ -153,7 +118,7 @@ input {
 .site-header .header-actions {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 30px;
   min-width: 0;
 }
 
@@ -163,7 +128,7 @@ input {
   gap: 12px;
   width: clamp(190px, 19vw, 256px);
   min-width: 0;
-  min-height: 44px;
+  min-height: 40px;
   padding: 10px 14px;
   border: 1px solid transparent;
   border-radius: 12px;
@@ -185,7 +150,7 @@ input {
   border: 0;
   background: transparent;
   color: var(--chrome-ink);
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.5;
 }
 
@@ -210,7 +175,7 @@ input {
 .site-header .icon-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .site-header .icon-button {
@@ -262,15 +227,14 @@ input {
 }
 
 .site-footer {
-  padding-block: 28px 14px;
-  border-top: 1px solid var(--chrome-border);
+  padding-block: 22px 12px;
 }
 
 .site-footer .footer-top {
   display: grid;
-  grid-template-columns: minmax(180px, 1.8fr) 0.75fr 1fr 1fr minmax(230px, 1.35fr);
+  grid-template-columns: minmax(180px, 1.9fr) 0.65fr 0.95fr 1.2fr minmax(220px, 1.1fr);
   align-items: start;
-  gap: 28px;
+  gap: 24px;
 }
 
 .site-footer .footer-column {
@@ -278,8 +242,8 @@ input {
 }
 
 .site-footer .footer-column h4 {
-  margin: 0 0 8px;
-  font-size: 13px;
+  margin: 0 0 6px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 1.4;
 }
@@ -287,15 +251,16 @@ input {
 .site-footer .footer-column ul {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
   margin: 0;
   padding: 0;
   list-style: none;
+  font-size: 11px;
 }
 
 .site-footer .footer-column a {
   color: var(--chrome-muted);
-  font-size: 12px;
+  font-size: 11px;
   text-decoration: none;
   text-underline-offset: 3px;
   transition: color 0.2s ease;
@@ -329,15 +294,15 @@ input {
 }
 
 .site-footer .newsletter-description {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: var(--chrome-muted);
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .site-footer .newsletter-box {
   display: flex;
   align-items: center;
-  min-height: 44px;
+  min-height: 38px;
   padding-left: 12px;
   border: 1px solid var(--chrome-border);
   border-radius: 9px;
@@ -351,7 +316,7 @@ input {
 .site-footer .newsletter-box button {
   display: grid;
   place-items: center;
-  flex: 0 0 44px;
+  flex: 0 0 38px;
   align-self: stretch;
   margin: -1px;
   margin-left: 8px;
@@ -379,11 +344,11 @@ input {
   align-items: center;
   flex-wrap: wrap;
   gap: 10px 24px;
-  margin-top: 24px;
-  padding-top: 12px;
+  margin-top: 14px;
+  padding-top: 8px;
   border-top: 1px solid var(--chrome-border);
   color: var(--chrome-muted);
-  font-size: 11px;
+  font-size: 10px;
 }
 
 .site-footer .footer-bottom p {
@@ -451,19 +416,18 @@ input {
   }
 
   .site-header .brand {
-    gap: 8px;
+    gap: 4px;
   }
 
   .site-header .brand-mark {
-    flex-basis: 32px;
-    width: 32px;
-    height: 36px;
-    border-radius: 8px;
+    flex-basis: 35px;
+    width: 35px;
+    height: 42px;
   }
 
   .site-header .brand-mark img {
-    width: 23px;
-    height: 23px;
+    width: 42px;
+    height: 42px;
   }
 
   .site-header .brand-name {

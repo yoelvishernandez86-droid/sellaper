@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import brandIcon from "../assets/caja-abierta.svg";
+import brandIcon from "../assets/sellaper-logo.svg";
 import searchIcon from "../assets/busqueda.svg";
 import profileIcon from "../assets/usuario.svg";
 import favoriteIcon from "../assets/corazon (1).svg";
@@ -14,7 +14,8 @@ function Header() {
           <div className="brand-mark">
             <img
               src={brandIcon}
-              alt="Logo de la marca Sellaper con un icono de caja abierta"
+              alt=""
+              aria-hidden="true"
             />
           </div>
           <div className="brand-text">
@@ -42,11 +43,11 @@ function Header() {
           </label>
 
           <div className="icon-actions">
-            <Link to="/perfil" className="icon-button" aria-label="Perfil de usuario">
-              <img src={profileIcon} alt="" aria-hidden="true" />
-            </Link>
             <Link to="/favoritos" className="icon-button" aria-label="Favoritos">
               <img src={favoriteIcon} alt="" aria-hidden="true" />
+            </Link>
+            <Link to="/perfil" className="icon-button" aria-label="Perfil de usuario">
+              <img src={profileIcon} alt="" aria-hidden="true" />
             </Link>
             <Link to="/carrito" className="icon-button cart-button" aria-label="Carrito">
               <img src={cartIcon} alt="" aria-hidden="true" />
