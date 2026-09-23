@@ -1,4 +1,4 @@
-import type { Product } from "../types/product";
+import type { Product } from "../types/typeOfProduct";
 import carritoIcono from "../assets/carrito-de-compras.svg";
 import "../styles/productCard.css";
 

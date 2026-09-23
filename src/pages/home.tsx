@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import type { Product, ProductsResponse } from "../types/product";
+import type { Product, ProductsResponse } from "../types/typeOfProduct";
 import ProductCard from "../components/ProductCard";
 import heroImage from "../assets/chicaUsandoSellaperBanner.png";
 import technologyImage from "../assets/imagenParaTecnologiaCategoria.png";
@@ -12,24 +12,37 @@ import shieldIcon from "../assets/verificacion-de-escudo.svg";
 import boxIcon from "../assets/caja-abierta.svg";
 import arrowIcon from "../assets/flecha-pequena-derecha.svg";
 import "../styles/home.css";
-
+import { productosCategoria } from "../types/productos";
+import { getProducts } from "../types/productos";
 const Home = () => {
   const [productos, setProductos] = useState<Product[]>([]);
 
   useEffect(() => {
-    const getProducts = async () => {
-      const respuesta = await fetch("https://dummyjson.com/products");
-      const datos: ProductsResponse = await respuesta.json();
-
-      setProductos(datos.products);
+    const cargarProductos = async () => {
+      try {
+        const productosSellaper = await getProducts();
+        setProductos(productosSellaper);
+      } catch (error) {
+        console.error("No se pudieron cargar los productos:", error);
+      }
     };
 
-    getProducts();
+    cargarProductos();
   }, []);
+
+  const productosTecnologia = productosCategoria(productos, "tecnologia");
+  const productosRopa = productosCategoria(productos, "ropa");
+  const productosLifestyle = productosCategoria(productos, "lifestyle");
+
   return (
     <main className="home">
       <section className="hero" aria-labelledby="hero-title">
-        <img className="hero-image" src={heroImage} alt="" fetchPriority="high" />
+        <img
+          className="hero-image"
+          src={heroImage}
+          alt=""
+          fetchPriority="high"
+        />
         <div className="home-container hero-inner">
           <div className="hero-content">
             <h1 className="hero-title" id="hero-title">
@@ -85,7 +98,11 @@ const Home = () => {
                 </div>
                 <div className="category-content">
                   <h3>Tecnología</h3>
-                  <p>Descubre lo último<br />en electrónica</p>
+                  <p>
+                    Descubre lo último
+                    <br />
+                    en electrónica
+                  </p>
                   <span className="category-arrow" aria-hidden="true">
                     <img src={arrowIcon} alt="" />
                   </span>
@@ -99,7 +116,11 @@ const Home = () => {
                 </div>
                 <div className="category-content">
                   <h3>Ropa</h3>
-                  <p>Estilo para cada<br />momento</p>
+                  <p>
+                    Estilo para cada
+                    <br />
+                    momento
+                  </p>
                   <span className="category-arrow" aria-hidden="true">
                     <img src={arrowIcon} alt="" />
                   </span>
@@ -113,7 +134,11 @@ const Home = () => {
                 </div>
                 <div className="category-content">
                   <h3>Lifestyle</h3>
-                  <p>Productos que<br />inspiran tu día</p>
+                  <p>
+                    Productos que
+                    <br />
+                    inspiran tu día
+                  </p>
                   <span className="category-arrow" aria-hidden="true">
                     <img src={arrowIcon} alt="" />
                   </span>
@@ -127,30 +152,44 @@ const Home = () => {
           <div className="section-heading">
             <h2 id="products-title">Productos destacados</h2>
             <Link className="section-link" to="/productos">
-              Ver más productos <img src={arrowIcon} alt="" aria-hidden="true" />
+              Ver más productos{" "}
+              <img src={arrowIcon} alt="" aria-hidden="true" />
             </Link>
           </div>
           <div className="products-grid">
-            {productos
-              .filter((producto) => producto.rating >= 4.5)
-              .map((producto) => (
-                <ProductCard key={producto.id} product={producto} />
-              ))}
+            {productos.slice(0, 6).map((producto) => (
+              <ProductCard key={producto.id} product={producto} />
+            ))}
           </div>
         </section>
       </div>
 
       <section className="banner-inferior" aria-labelledby="collection-title">
-        <img className="collection-image" src={collectionImage} alt="" loading="lazy" />
+        <img
+          className="collection-image"
+          src={collectionImage}
+          alt=""
+          loading="lazy"
+        />
         <div className="collection-content">
-          <h2 id="collection-title">Tu estilo,<br />sin límites.</h2>
+          <h2 id="collection-title">
+            Tu estilo,
+            <br />
+            sin límites.
+          </h2>
           <p>Moda y accesorios para cada plan.</p>
           <Link className="home-button collection-button" to="/ropa">
             Descubrir colección
             <img src={arrowIcon} alt="" aria-hidden="true" />
           </Link>
         </div>
-        <p className="collection-note" aria-hidden="true">Vive<br />tu propio<br />estilo</p>
+        <p className="collection-note" aria-hidden="true">
+          Vive
+          <br />
+          tu propio
+          <br />
+          estilo
+        </p>
       </section>
     </main>
   );
