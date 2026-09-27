@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import type { Product, ProductsResponse } from "../types/typeOfProduct";
+import type { Product } from "../types/typeOfProduct";
 import ProductCard from "../components/ProductCard";
 import heroImage from "../assets/chicaUsandoSellaperBanner.png";
 import technologyImage from "../assets/imagenParaTecnologiaCategoria.png";
@@ -12,7 +12,6 @@ import shieldIcon from "../assets/verificacion-de-escudo.svg";
 import boxIcon from "../assets/caja-abierta.svg";
 import arrowIcon from "../assets/flecha-pequena-derecha.svg";
 import "../styles/home.css";
-import { productosCategoria } from "../types/productos";
 import { getProducts } from "../types/productos";
 const Home = () => {
   const [productos, setProductos] = useState<Product[]>([]);
@@ -29,10 +28,6 @@ const Home = () => {
 
     cargarProductos();
   }, []);
-
-  const productosTecnologia = productosCategoria(productos, "tecnologia");
-  const productosRopa = productosCategoria(productos, "ropa");
-  const productosLifestyle = productosCategoria(productos, "lifestyle");
 
   return (
     <main className="home">

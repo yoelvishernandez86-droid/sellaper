@@ -10,7 +10,7 @@
 }
 
 .product-card:hover {
-  border-color: #cbdcd3;
+  border-color: var(--sellaper-accent);
   box-shadow: 0 5px 18px rgb(17 30 41 / 6%);
 }
 
@@ -88,7 +88,7 @@
   padding: 9px 5px;
   border: 0;
   border-radius: 7px;
-  background: var(--sellaper-green);
+  background: var(--sellaper-accent);
   color: #fff;
   font: inherit;
   font-size: 11px;
@@ -99,11 +99,11 @@
 }
 
 .product-card__button:hover {
-  background: var(--sellaper-green-dark);
+  background: var(--sellaper-accent-dark);
 }
 
 .product-card__button:focus-visible {
-  outline: 3px solid #83ccb3;
+  outline: 3px solid var(--sellaper-accent);
   outline-offset: 3px;
 }
 

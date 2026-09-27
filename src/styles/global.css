@@ -1,21 +1,26 @@
 :root {
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   color: #111e29;
-  background: #fff;
+  background: #eaf4ff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --sellaper-green: #008458;
-  --sellaper-green-dark: #006b47;
-  --sellaper-green-soft: #edf7f2;
+  --sellaper-blue: #0864ec;
+  --sellaper-blue-dark: #0730ae;
+  --sellaper-blue-soft: #e7f3ff;
+  --sellaper-cyan: #43d8f4;
+  --sellaper-accent: var(--sellaper-blue);
+  --sellaper-accent-dark: var(--sellaper-blue-dark);
+  --sellaper-accent-soft: var(--sellaper-blue-soft);
   --sellaper-text: #111e29;
   --sellaper-muted: #626b7b;
-  --sellaper-border: #e7eaf0;
+  --sellaper-border: #dce6f2;
   --sellaper-light: #f6f7f9;
   --sellaper-white: #fff;
   --sellaper-icon-filter: brightness(0) saturate(100%) invert(9%) sepia(16%) saturate(1482%) hue-rotate(164deg) brightness(96%) contrast(94%);
+  --sellaper-blue-icon-filter: brightness(0) saturate(100%) invert(29%) sepia(99%) saturate(3534%) hue-rotate(211deg) brightness(95%) contrast(96%);
   --page-gutter: clamp(20px, 4vw, 48px);
 }
 
@@ -56,11 +61,11 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--sellaper-green);
+  outline: 2px solid var(--sellaper-accent);
   outline-offset: 4px;
 }
 
 ::selection {
   color: var(--sellaper-text);
-  background: #cde9dc;
+  background: #bdeafa;
 }

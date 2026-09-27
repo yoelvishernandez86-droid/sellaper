@@ -1,5 +1,52 @@
+.App--home {
+  --sellaper-blue: #0866e8;
+  --sellaper-blue-dark: color-mix(in srgb, var(--sellaper-blue) 85%, #172337);
+  --sellaper-blue-soft: #f5f7fa;
+  --sellaper-accent: var(--sellaper-blue);
+  --sellaper-accent-dark: var(--sellaper-blue-dark);
+  --sellaper-accent-soft: var(--sellaper-blue-soft);
+  --sellaper-text: #172337;
+  --sellaper-muted: #596779;
+  --sellaper-border: #e2e8f0;
+  --sellaper-light: #f5f7fa;
+  --sellaper-white: #ffffff;
+  min-height: 100vh;
+  color: var(--sellaper-text);
+  background: var(--sellaper-light);
+}
+
+.App--home ::selection {
+  color: var(--sellaper-white);
+  background: var(--sellaper-blue);
+}
+
+.App--home .site-header,
+.App--home .site-footer {
+  background: var(--sellaper-white);
+}
+
+.App--home .site-header .nav-link {
+  --chrome-blue: var(--sellaper-blue);
+}
+
+.App--home .site-header .search-box {
+  border-color: var(--sellaper-border);
+  background: var(--sellaper-light);
+}
+
+.App--home .site-header .search-box:focus-within,
+.App--home .site-footer .newsletter-box:focus-within {
+  border-color: var(--sellaper-blue);
+  outline-color: color-mix(in srgb, var(--sellaper-blue) 15%, transparent);
+}
+
 .home {
-  padding-bottom: 20px;
+  padding-bottom: 32px;
+  background: var(--sellaper-light);
+}
+
+.home .product-card__image {
+  background: var(--sellaper-white);
 }
 
 .home-container {
@@ -11,7 +58,7 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  background: #f3eee8;
+  background: transparent;
 }
 
 .hero-image {
@@ -22,7 +69,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 43%;
-  mask-image: linear-gradient(90deg, transparent, #0000000d 8%, #00000040 18%, #00000099 30%, #000 48%);
+  mask-image: linear-gradient(90deg, transparent, #00000040 10%, #000000b3 23%, #000 36%);
 }
 
 .hero-inner {
@@ -47,11 +94,12 @@
 
 .hero-title span {
   display: block;
-  color: var(--sellaper-green);
+  color: var(--sellaper-blue);
 }
 
 .hero-description {
   margin: 13px 0 18px;
+  color: var(--sellaper-muted);
   font-size: 18px;
   letter-spacing: -0.45px;
 }
@@ -65,7 +113,7 @@
   padding: 10px 23px;
   border-radius: 8px;
   color: #fff;
-  background: var(--sellaper-green);
+  background: var(--sellaper-blue);
   font-size: 13px;
   font-weight: 600;
   line-height: 1.4;
@@ -80,8 +128,8 @@
 }
 
 .home-button:hover {
-  background: var(--sellaper-green-dark);
-  box-shadow: 0 4px 12px #006b471a;
+  background: var(--sellaper-blue-dark);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--sellaper-blue) 15%, transparent);
 }
 
 .hero-benefits {
@@ -113,7 +161,7 @@
 
 .hero-benefit p {
   margin: 0;
-  color: #536071;
+  color: var(--sellaper-muted);
   font-size: 11px;
   white-space: nowrap;
 }
@@ -143,7 +191,7 @@
   flex-shrink: 0;
   align-items: center;
   gap: 8px;
-  color: var(--sellaper-green);
+  color: var(--sellaper-blue);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -157,7 +205,7 @@
 .section-link img {
   width: 19px;
   height: 19px;
-  filter: brightness(0) saturate(100%) invert(35%) sepia(74%) saturate(1163%) hue-rotate(122deg) brightness(90%) contrast(101%);
+  filter: var(--sellaper-blue-icon-filter);
 }
 
 .categories-grid {
@@ -167,18 +215,11 @@
 }
 
 .category-card {
-  --category-background: #e5eef5;
+  --category-background: var(--sellaper-white);
   min-width: 0;
+  border: 1px solid var(--sellaper-border);
   border-radius: 11px;
   background: var(--category-background);
-}
-
-.category-clothing {
-  --category-background: #f1e7df;
-}
-
-.category-lifestyle {
-  --category-background: #e9ebe0;
 }
 
 .category-link {
@@ -231,6 +272,7 @@
 
 .category-content p {
   margin: 0;
+  color: var(--sellaper-muted);
   font-size: 13px;
   line-height: 1.35;
 }
@@ -242,7 +284,7 @@
   margin-top: 10px;
   place-items: center;
   border-radius: 50%;
-  background: #ffffffed;
+  background: var(--sellaper-white);
   transition: background-color 180ms ease;
 }
 
@@ -282,7 +324,7 @@
   margin: 22px auto 0;
   padding: 18px max(28px, calc((min(1360px, 100vw - var(--page-gutter) * 2) - 1200px) / 2 + 40px));
   border-radius: 11px;
-  background: #eee0d0;
+  background: var(--sellaper-white);
 }
 
 .collection-image {
@@ -299,7 +341,7 @@
   position: absolute;
   z-index: -1;
   inset: 0;
-  background: linear-gradient(90deg, #fff0e1d9 0%, #fff0e1b3 27%, #fff0e100 57%);
+  background: linear-gradient(90deg, #f5f7fabf 0%, #f5f7fa80 24%, #f5f7fa00 50%);
   content: "";
 }
 
@@ -313,6 +355,7 @@
 
 .collection-content > p {
   margin: 7px 0 9px;
+  color: var(--sellaper-muted);
   font-size: 14px;
   line-height: 1.35;
 }
@@ -320,12 +363,12 @@
 .collection-button {
   min-height: 36px;
   padding: 8px 18px;
-  background: var(--sellaper-text);
+  background: var(--sellaper-blue);
   font-size: 12px;
 }
 
 .collection-button:hover {
-  background: #243846;
+  background: var(--sellaper-blue-dark);
 }
 
 .collection-note {
@@ -347,7 +390,7 @@
   height: 3px;
   margin-top: 8px;
   border-radius: 50%;
-  background: #0f9b6a;
+  background: var(--sellaper-blue);
   content: "";
   transform: rotate(-5deg);
 }
@@ -364,7 +407,7 @@
   }
 
   .hero-image {
-    mask-image: linear-gradient(90deg, transparent, #0000000d 12%, #00000040 28%, #00000099 46%, #000 72%);
+    mask-image: linear-gradient(90deg, transparent, #0000001a 12%, #00000066 27%, #000000cc 42%, #000 58%);
   }
 
   .category-content {
@@ -399,7 +442,7 @@
   .hero-image {
     width: 85%;
     object-position: 42% center;
-    mask-image: linear-gradient(90deg, transparent, #0000000d 18%, #00000040 36%, #00000099 62%, #000 92%);
+    mask-image: linear-gradient(90deg, transparent, #0000001a 18%, #00000059 34%, #000000b3 52%, #000 76%);
   }
 
   .hero-benefits {
@@ -462,7 +505,7 @@
     width: 100%;
     height: 72%;
     object-position: center 47%;
-    mask-image: linear-gradient(180deg, transparent, #00000026 12%, #000000b3 30%, #000 44%, #000 70%, #00000033 86%, transparent 97%);
+    mask-image: linear-gradient(180deg, transparent, #00000033 10%, #000000cc 24%, #000 34%, #000 76%, #00000059 90%, transparent 100%);
   }
 
   .hero-benefits {
@@ -561,7 +604,7 @@
   }
 
   .banner-inferior::before {
-    background: linear-gradient(90deg, #fff0e1eb 0%, #fff0e1a6 52%, #fff0e100 100%);
+    background: linear-gradient(90deg, #f5f7fad9 0%, #f5f7fa99 42%, #f5f7fa00 90%);
   }
 
   .collection-content h2 {

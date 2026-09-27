@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import brandIcon from "../assets/sellaper-logo.svg";
 import searchIcon from "../assets/busqueda.svg";
 import profileIcon from "../assets/usuario.svg";
@@ -25,11 +25,11 @@ function Header() {
         </div>
 
         <nav className="main-nav" aria-label="Navegación principal">
-          <Link className="nav-link active" to="/">Inicio</Link>
-          <Link className="nav-link" to="/tecnologia">Tecnología</Link>
-          <Link className="nav-link" to="/ropa">Ropa</Link>
-          <Link className="nav-link" to="/lifestyle">Lifestyle</Link>
-          <Link className="nav-link" to="/ofertas">Ofertas</Link>
+          <NavLink className="nav-link" to="/" end>Inicio</NavLink>
+          <NavLink className="nav-link" to="/tecnologia">Tecnología</NavLink>
+          <NavLink className="nav-link" to="/ropa">Ropa</NavLink>
+          <NavLink className="nav-link" to="/lifestyle">Lifestyle</NavLink>
+          <NavLink className="nav-link" to="/ofertas">Ofertas</NavLink>
         </nav>
 
         <div className="header-actions">

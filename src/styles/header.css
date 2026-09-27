@@ -1,13 +1,13 @@
 .site-header,
 .site-footer {
-  --chrome-green: var(--sellaper-green);
-  --chrome-green-dark: #006b47;
+  --chrome-blue: var(--sellaper-blue);
+  --chrome-blue-dark: var(--sellaper-blue-dark);
   --chrome-ink: var(--sellaper-text);
   --chrome-muted: var(--sellaper-muted);
   --chrome-border: var(--sellaper-border);
   --chrome-icon-filter: brightness(0) saturate(100%) invert(9%) sepia(16%) saturate(1482%) hue-rotate(164deg) brightness(96%) contrast(94%);
   color: var(--chrome-ink);
-  background: #fff;
+  background: #ffffffb8;
   font-family: Inter, "Segoe UI", sans-serif;
   line-height: 1.5;
   padding-inline: clamp(20px, 4vw, 48px);
@@ -97,7 +97,7 @@
 
 .site-header .nav-link:hover,
 .site-header .nav-link.active {
-  color: var(--chrome-green);
+  color: var(--chrome-blue);
 }
 
 .site-header .nav-link.active {
@@ -105,14 +105,23 @@
 }
 
 .site-header .nav-link:hover::after,
-.site-header .nav-link:focus-visible::after {
+.site-header .nav-link:focus-visible::after,
+.site-header .nav-link.active::after {
   content: "";
   position: absolute;
   inset-inline: 0;
   bottom: 4px;
   height: 2px;
   border-radius: 2px;
-  background: var(--chrome-green);
+  background: var(--chrome-blue);
+}
+
+.site-header .nav-link[href="/ropa"] {
+  --chrome-blue: #79583e;
+}
+
+.site-header .nav-link[href="/lifestyle"] {
+  --chrome-blue: #4d7052;
 }
 
 .site-header .header-actions {
@@ -132,7 +141,7 @@
   padding: 10px 14px;
   border: 1px solid transparent;
   border-radius: 12px;
-  background: #f0f2f4;
+  background: #eaf1f9;
 }
 
 .site-header .search-box img {
@@ -162,8 +171,8 @@
 
 .site-header .search-box:focus-within,
 .site-footer .newsletter-box:focus-within {
-  border-color: var(--chrome-green);
-  outline: 3px solid #00845826;
+  border-color: var(--chrome-blue);
+  outline: 3px solid #0864ec26;
   outline-offset: 2px;
 }
 
@@ -192,7 +201,7 @@
 
 .site-header .icon-button:hover,
 .site-footer .social-links a:hover {
-  background: #edf7f2;
+  background: var(--sellaper-blue-soft);
 }
 
 .site-header .icon-button img {
@@ -212,7 +221,7 @@
   padding-inline: 5px;
   border: 2px solid #fff;
   border-radius: 50px;
-  background: var(--chrome-green);
+  background: var(--chrome-blue);
   color: #fff;
   font-size: 10px;
   font-weight: 600;
@@ -221,7 +230,7 @@
 
 :is(.site-header, .site-footer) a:focus-visible,
 .site-footer button:focus-visible {
-  outline: 2px solid var(--chrome-green);
+  outline: 2px solid var(--chrome-blue);
   outline-offset: 4px;
   border-radius: 4px;
 }
@@ -267,7 +276,7 @@
 }
 
 .site-footer .footer-column li a:hover {
-  color: var(--chrome-green);
+  color: var(--chrome-blue);
   text-decoration: underline;
 }
 
@@ -323,13 +332,13 @@
   padding: 0;
   border: 0;
   border-radius: 9px;
-  background: var(--chrome-green);
+  background: var(--chrome-blue);
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
 
 .site-footer .newsletter-box button:hover {
-  background: var(--chrome-green-dark);
+  background: var(--chrome-blue-dark);
 }
 
 .site-footer .newsletter-box button img {
@@ -364,7 +373,7 @@
 .site-footer .footer-credit img {
   width: 14px;
   height: 14px;
-  filter: brightness(0) saturate(100%) invert(35%) sepia(74%) saturate(1163%) hue-rotate(122deg) brightness(90%) contrast(101%);
+  filter: var(--sellaper-blue-icon-filter);
 }
 
 @media (max-width: 1100px) {
