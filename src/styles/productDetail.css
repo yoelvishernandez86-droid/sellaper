@@ -1,0 +1,227 @@
+.detalle-producto {
+  min-height: 70vh;
+  padding-block: 26px 64px;
+  background:
+    radial-gradient(ellipse at 100% 0, #d5e9fd, transparent 60%),
+    linear-gradient(145deg, #edf6ff, #eef0fe);
+}
+
+.detalle-producto__contenedor,
+.detalle-producto__estado {
+  width: min(1200px, calc(100% - var(--page-gutter) * 2));
+  margin-inline: auto;
+}
+
+.detalle-producto__ruta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-bottom: 24px;
+  color: var(--sellaper-muted);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.detalle-producto__ruta a,
+.detalle-producto__volver {
+  text-decoration: none;
+}
+
+.detalle-producto__ruta a:hover,
+.detalle-producto__volver:hover {
+  color: var(--sellaper-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.detalle-producto__ruta [aria-current] {
+  color: var(--sellaper-text);
+}
+
+.detalle-producto__ficha {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  padding: clamp(24px, 4vw, 48px);
+  border: 1px solid var(--sellaper-border);
+  border-radius: 20px;
+  background: var(--sellaper-white);
+  box-shadow: 0 12px 40px rgb(17 30 41 / 4%);
+}
+
+.detalle-producto__imagen {
+  display: grid;
+  min-width: 0;
+  aspect-ratio: 1;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--sellaper-light);
+}
+
+.detalle-producto__imagen img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  padding: clamp(20px, 3vw, 40px);
+  object-fit: contain;
+}
+
+.detalle-producto__informacion {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.detalle-producto__etiqueta {
+  margin: 0 0 12px;
+  color: var(--sellaper-accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.detalle-producto h1 {
+  margin: 0;
+  color: var(--sellaper-text);
+  font-size: clamp(26px, 3vw, 40px);
+  font-weight: 750;
+  line-height: 1.15;
+  letter-spacing: -1.1px;
+  text-wrap: balance;
+}
+
+.detalle-producto__valoracion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  color: var(--sellaper-muted);
+  font-size: 13px;
+}
+
+.detalle-producto__estrellas {
+  color: #f5ae00;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.detalle-producto__descripcion {
+  margin: 22px 0 28px;
+  color: var(--sellaper-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.detalle-producto__compra {
+  padding-top: 24px;
+  border-top: 1px solid var(--sellaper-border);
+}
+
+.detalle-producto__precio-etiqueta {
+  display: block;
+  margin-bottom: 2px;
+  color: var(--sellaper-muted);
+  font-size: 12px;
+}
+
+.detalle-producto__precio {
+  display: block;
+  margin-bottom: 24px;
+  font-size: clamp(30px, 3vw, 38px);
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.detalle-producto__boton {
+  display: flex;
+  width: 100%;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--sellaper-accent);
+  color: var(--sellaper-white);
+  font-weight: 650;
+  transition: background-color 180ms ease;
+}
+
+.detalle-producto__boton:hover {
+  background: var(--sellaper-accent-dark);
+}
+
+.detalle-producto__boton img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1);
+}
+
+.detalle-producto__volver {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: var(--sellaper-muted);
+  font-size: 13px;
+}
+
+.detalle-producto__estado {
+  padding: clamp(28px, 6vw, 72px);
+  border: 1px solid var(--sellaper-border);
+  border-radius: 20px;
+  background: var(--sellaper-white);
+  text-align: center;
+}
+
+.detalle-producto__estado > p:not(.detalle-producto__etiqueta) {
+  color: var(--sellaper-muted);
+}
+
+.detalle-producto__estado a {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--sellaper-accent);
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 760px) {
+  .detalle-producto {
+    padding-block: 20px 36px;
+  }
+
+  .detalle-producto__ruta {
+    margin-bottom: 18px;
+    font-size: 12px;
+  }
+
+  .detalle-producto__ficha {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .detalle-producto__imagen {
+    width: 100%;
+    max-width: 420px;
+    justify-self: center;
+  }
+
+  .detalle-producto__descripcion {
+    margin-block: 18px 24px;
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detalle-producto__boton {
+    transition: none;
+  }
+}
