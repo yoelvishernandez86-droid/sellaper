@@ -1,6 +1,7 @@
 import type { Product } from "../types/typeOfProduct";
 import "../styles/productCard.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 type ProductCardProps = {
   product: Product;
 };
@@ -15,6 +16,7 @@ function ProductCard({ product }: ProductCardProps) {
         </div>
         <div className="product-card__details">
           <h3 className="product-card__title">{product.title}</h3>
+
           <div
             className="product-card__rating"
             role="img"

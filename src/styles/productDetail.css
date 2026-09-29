@@ -162,6 +162,48 @@
   filter: brightness(0) invert(1);
 }
 
+.Favorites-button {
+  display: flex;
+  width: 100%;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px 20px;
+  border: 1px solid var(--sellaper-border);
+  border-radius: 10px;
+  background: var(--sellaper-white);
+  color: var(--sellaper-muted);
+  font-size: 14px;
+  font-weight: 650;
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.Favorites-button__icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  background-color: currentColor;
+  mask: url("../assets/corazon vacio.svg") center / contain no-repeat;
+}
+
+.Favorites-button:hover,
+.Favorites-button[aria-pressed="true"] {
+  border-color: var(--sellaper-accent);
+  background: var(--sellaper-accent-soft);
+  color: var(--sellaper-accent);
+}
+
+.Favorites-button[aria-pressed="true"] .Favorites-button__icon {
+  mask-image: url("../assets/corazon lleno.svg");
+}
+
+.Favorites-button[aria-pressed="true"]:hover {
+  border-color: var(--sellaper-accent-dark);
+  color: var(--sellaper-accent-dark);
+}
+
 .detalle-producto__volver {
   display: inline-flex;
   min-height: 44px;
@@ -221,7 +263,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .detalle-producto__boton {
+  .detalle-producto__boton,
+  .Favorites-button {
     transition: none;
   }
 }

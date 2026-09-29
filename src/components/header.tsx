@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import brandIcon from "../assets/sellaper-logo.svg";
 import searchIcon from "../assets/busqueda.svg";
 import profileIcon from "../assets/usuario.svg";
-import favoriteIcon from "../assets/corazon (1).svg";
+import favoriteIcon from "../assets/corazon vacio.svg";
 import cartIcon from "../assets/carrito-de-compras.svg";
 import "../styles/header.css";
 

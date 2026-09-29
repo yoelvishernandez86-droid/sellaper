@@ -4,7 +4,7 @@ import githubIcon from '../assets/github.svg';
 import whatsappIcon from '../assets/whatsapp.svg';
 import linkedinIcon from '../assets/linkedin.svg';
 import arrowIcon from '../assets/flecha-pequena-derecha.svg';
-import heartIcon from '../assets/corazon.svg';
+import heartIcon from '../assets/corazon lleno.svg';
 import '../styles/header.css';
 
 const Footer = () => {

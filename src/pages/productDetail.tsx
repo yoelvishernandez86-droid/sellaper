@@ -6,6 +6,13 @@ import "../styles/productDetail.css";
 
 const ProductDetail = () => {
   const { id } = useParams();
+  const [favoritos, setFavoritos] = useState<number[]>(() => {
+    try {
+      return JSON.parse(localStorage.getItem("favoritos") ?? "[]");
+    } catch {
+      return [];
+    }
+  });
   const [producto, setProducto] = useState<Product | null>(null);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState("");
@@ -37,10 +44,21 @@ const ProductDetail = () => {
         if (!controller.signal.aborted) setCargando(false);
       }
     }
-
     cargarProducto();
     return () => controller.abort();
   }, [id]);
+
+  useEffect(() => {
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
+  }, [favoritos]);
+
+  const cambiarFavoritos = (id: number) => {
+    setFavoritos((valoresAnteriores) =>
+      valoresAnteriores.includes(id)
+        ? valoresAnteriores.filter((favoritoID) => favoritoID !== id)
+        : [...valoresAnteriores, id],
+    );
+  };
 
   if (cargando || error || !producto) {
     return (
@@ -74,7 +92,10 @@ const ProductDetail = () => {
           <span aria-current="page">{producto.title}</span>
         </nav>
 
-        <article className="detalle-producto__ficha" aria-labelledby="producto-titulo">
+        <article
+          className="detalle-producto__ficha"
+          aria-labelledby="producto-titulo"
+        >
           <div className="detalle-producto__imagen">
             <img src={producto.thumbnail} alt={producto.title} />
           </div>
@@ -90,11 +111,14 @@ const ProductDetail = () => {
               aria-label={`Valoración: ${producto.rating} de 5`}
             >
               <span className="detalle-producto__estrellas" aria-hidden="true">
-                {"★".repeat(estrellas)}{"☆".repeat(5 - estrellas)}
+                {"★".repeat(estrellas)}
+                {"☆".repeat(5 - estrellas)}
               </span>
               <span aria-hidden="true">{producto.rating.toFixed(1)} / 5</span>
             </div>
-            <p className="detalle-producto__descripcion">{producto.description}</p>
+            <p className="detalle-producto__descripcion">
+              {producto.description}
+            </p>
 
             <div className="detalle-producto__compra">
               <span className="detalle-producto__precio-etiqueta">Precio</span>
@@ -104,6 +128,15 @@ const ProductDetail = () => {
                 Añadir al carrito
               </button>
             </div>
+            <button
+              className="Favorites-button"
+              type="button"
+              onClick={() => cambiarFavoritos(producto.id)}
+              aria-pressed={favoritos.includes(producto.id)}
+            >
+              <span className="Favorites-button__icon" aria-hidden="true" />
+              Favoritos
+            </button>
             <Link className="detalle-producto__volver" to="/">
               <span aria-hidden="true">←</span> Seguir comprando
             </Link>
