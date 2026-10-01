@@ -7,6 +7,7 @@ import Tecnologia from "./pages/tecnologia";
 import Ropa from "./pages/ropa";
 import LifeStyle from "./pages/lifeStyle";
 import ProductDetail from "./pages/productDetail";
+import Favorites from "./pages/favorites";
 function App() {
   const { pathname } = useLocation();
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/ropa" element={<Ropa />} />
         <Route path="/lifestyle" element={<LifeStyle />} />
         <Route path="/producto/:id" element={<ProductDetail />} />
+        <Route path="/favoritos" element={<Favorites />} />
       </Routes>
       <Footer />
     </div>
