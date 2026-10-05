@@ -3,8 +3,10 @@ import { Link, useParams } from "react-router-dom";
 import carritoIcono from "../assets/carrito-de-compras.svg";
 import type { Product } from "../types/typeOfProduct";
 import "../styles/productDetail.css";
-
+import { CarritoContext } from "../context/carritoProvider";
+import { useContext } from "react";
 const ProductDetail = () => {
+  const contexto = useContext(CarritoContext);
   const { id } = useParams();
   const [favoritos, setFavoritos] = useState<number[]>(() => {
     try {
@@ -123,7 +125,11 @@ const ProductDetail = () => {
             <div className="detalle-producto__compra">
               <span className="detalle-producto__precio-etiqueta">Precio</span>
               <strong className="detalle-producto__precio">{precio}</strong>
-              <button className="detalle-producto__boton" type="button">
+              <button
+                className="detalle-producto__boton"
+                type="button"
+                onClick={() => contexto?.añadirAlCarrito(producto)}
+              >
                 <img src={carritoIcono} alt="" aria-hidden="true" />
                 Añadir al carrito
               </button>

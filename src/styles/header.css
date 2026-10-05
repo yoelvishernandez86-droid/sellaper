@@ -5,7 +5,8 @@
   --chrome-ink: var(--sellaper-text);
   --chrome-muted: var(--sellaper-muted);
   --chrome-border: var(--sellaper-border);
-  --chrome-icon-filter: brightness(0) saturate(100%) invert(9%) sepia(16%) saturate(1482%) hue-rotate(164deg) brightness(96%) contrast(94%);
+  --chrome-icon-filter: brightness(0) saturate(100%) invert(9%) sepia(16%)
+    saturate(1482%) hue-rotate(164deg) brightness(96%) contrast(94%);
   color: var(--chrome-ink);
   background: #ffffffb8;
   font-family: Inter, "Segoe UI", sans-serif;
@@ -38,6 +39,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  text-decoration: none;
 }
 
 :is(.site-header, .site-footer) .brand-mark {
@@ -241,7 +243,10 @@
 
 .site-footer .footer-top {
   display: grid;
-  grid-template-columns: minmax(180px, 1.9fr) 0.65fr 0.95fr 1.2fr minmax(220px, 1.1fr);
+  grid-template-columns: minmax(180px, 1.9fr) 0.65fr 0.95fr 1.2fr minmax(
+      220px,
+      1.1fr
+    );
   align-items: start;
   gap: 24px;
 }

@@ -6,6 +6,7 @@ export type Product = {
   thumbnail: string;
   description: string;
   rating: number;
+  cantidad?: number;
 };
 
 export type ProductsResponse = {

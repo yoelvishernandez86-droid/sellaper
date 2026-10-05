@@ -8,12 +8,15 @@ import Ropa from "./pages/ropa";
 import LifeStyle from "./pages/lifeStyle";
 import ProductDetail from "./pages/productDetail";
 import Favorites from "./pages/favorites";
+import SearchItems from "./pages/searchItems";
+
 function App() {
   const { pathname } = useLocation();
 
   return (
     <div className={pathname === "/" ? "App App--home" : "App"}>
       <Header />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tecnologia" element={<Tecnologia />} />
@@ -21,7 +24,9 @@ function App() {
         <Route path="/lifestyle" element={<LifeStyle />} />
         <Route path="/producto/:id" element={<ProductDetail />} />
         <Route path="/favoritos" element={<Favorites />} />
+        <Route path="/buscar" element={<SearchItems />} />
       </Routes>
+
       <Footer />
     </div>
   );
