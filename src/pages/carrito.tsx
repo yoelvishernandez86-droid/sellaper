@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { CarritoContext } from "../context/carritoProvider";
-import ProductCard from "../components/ProductCard";
 import type { Product } from "../types/typeOfProduct";
 function Carrito() {
   const contexto = useContext(CarritoContext);
@@ -17,23 +16,26 @@ function Carrito() {
           <p>Revisa tus productos antes de finalizar la compra.</p>
         </div>
         <section>
-          {contexto.carrito.map((articulo) => (
-            <article>
-              {articulo.thumbnail}
+          {contexto.carrito.map((articulo: Product) => (
+            <article key={articulo.id}>
+              <img src={articulo.thumbnail} alt={articulo.title} />
               <h3>{articulo.title}</h3>
               <p>{articulo.category}</p>
               <h3>{articulo.price}</h3>
               <div className="cantidad-selector">
-                <button onClick={() => contexto.disminuirCantidad(producto.id)}>
-                  −
+                <button onClick={() => contexto.disminuirCantidad(articulo.id)}>
+                  -
                 </button>
 
-                <span>{producto.cantidad}</span>
+                <span>{articulo.cantidad}</span>
 
-                <button onClick={() => contexto.aumentarCantidad(producto.id)}>
+                <button onClick={() => contexto.aumentarCantidad(articulo.id)}>
                   +
                 </button>
               </div>
+              <button onClick={() => contexto.eliminarDelCarrito(articulo.id)}>
+                Eliminar
+              </button>
             </article>
           ))}
         </section>
