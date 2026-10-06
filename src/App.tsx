@@ -10,6 +10,7 @@ import ProductDetail from "./pages/productDetail";
 import Favorites from "./pages/favorites";
 import SearchItems from "./pages/searchItems";
 import Carrito from "./pages/carrito";
+import AllCategories from "./pages/allCategories";
 
 function App() {
   const { pathname } = useLocation();
@@ -27,6 +28,7 @@ function App() {
         <Route path="/favoritos" element={<Favorites />} />
         <Route path="/buscar" element={<SearchItems />} />
         <Route path="/carrito" element={<Carrito />} />
+        <Route path="/todasCategorias" element={<AllCategories />} />
       </Routes>
 
       <Footer />

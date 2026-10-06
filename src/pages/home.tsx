@@ -46,7 +46,7 @@ const Home = () => {
             <p className="hero-description">
               Tecnología, moda y lifestyle para tu día a día.
             </p>
-            <Link className="home-button explore-button" to="/productos">
+            <Link className="home-button explore-button" to="/todasCategorias">
               Explorar productos
               <img src={arrowIcon} alt="" aria-hidden="true" />
             </Link>
@@ -81,7 +81,7 @@ const Home = () => {
         <section className="categories" aria-labelledby="categories-title">
           <div className="section-heading">
             <h2 id="categories-title">Nuestras categorías</h2>
-            <Link className="section-link" to="/productos">
+            <Link className="section-link" to="/todasCategorias">
               Ver todas <img src={arrowIcon} alt="" aria-hidden="true" />
             </Link>
           </div>
@@ -146,7 +146,7 @@ const Home = () => {
         <section className="relevant-products" aria-labelledby="products-title">
           <div className="section-heading">
             <h2 id="products-title">Productos destacados</h2>
-            <Link className="section-link" to="/productos">
+            <Link className="section-link" to="/todasCategorias">
               Ver más productos{" "}
               <img src={arrowIcon} alt="" aria-hidden="true" />
             </Link>

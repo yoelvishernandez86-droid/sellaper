@@ -53,9 +53,6 @@ function Header() {
           <NavLink className="nav-link" to="/lifestyle">
             Lifestyle
           </NavLink>
-          <NavLink className="nav-link" to="/ofertas">
-            Ofertas
-          </NavLink>
         </nav>
 
         <div className="header-actions">
