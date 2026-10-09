@@ -86,7 +86,7 @@ function Carrito() {
                             disabled={cantidad <= 1}
                             aria-label={`Reducir cantidad de ${articulo.title}`}
                           >
-                            −
+                            -
                           </button>
                           <span aria-live="polite" aria-atomic="true">
                             {cantidad}
@@ -149,6 +149,10 @@ function Carrito() {
               </p>
               <Link className="carrito__boton" to="/">
                 Ver más productos
+                <img src={flechaIcono} alt="" aria-hidden="true" />
+              </Link>
+              <Link to={"/checkout"} className="carrito__boton">
+                Proceder al pago{" "}
                 <img src={flechaIcono} alt="" aria-hidden="true" />
               </Link>
             </aside>

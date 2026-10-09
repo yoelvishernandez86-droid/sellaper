@@ -11,6 +11,8 @@ import Favorites from "./pages/favorites";
 import SearchItems from "./pages/searchItems";
 import Carrito from "./pages/carrito";
 import AllCategories from "./pages/allCategories";
+import Checkout from "./pages/checkout";
+import CheckoutFinalizado from "./pages/checkoutFinalizado";
 
 function App() {
   const { pathname } = useLocation();
@@ -29,6 +31,8 @@ function App() {
         <Route path="/buscar" element={<SearchItems />} />
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/todasCategorias" element={<AllCategories />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout/finalizado" element={<CheckoutFinalizado />} />
       </Routes>
 
       <Footer />

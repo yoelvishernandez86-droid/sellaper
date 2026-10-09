@@ -1,4 +1,10 @@
-import { createContext, useEffect, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useEffect,
+  useState,
+  type ReactNode,
+  useCallback,
+} from "react";
 
 import type { Product } from "../types/typeOfProduct";
 
@@ -9,6 +15,7 @@ type CarritoContextType = {
   aumentarCantidad: (id: number) => void;
   disminuirCantidad: (id: number) => void;
   eliminarDelCarrito: (id: number) => void;
+  vaciarCarrito: () => void;
 };
 
 type CarritoProviderProps = {
@@ -18,7 +25,11 @@ type CarritoProviderProps = {
 export const CarritoContext = createContext<CarritoContextType | null>(null);
 
 export function CarritoProvider({ children }: CarritoProviderProps) {
-  const [carrito, setCarrito] = useState<Product[]>(localStorage.getItem("carrito") ? JSON.parse(localStorage.getItem("carrito")!) : []);
+  const [carrito, setCarrito] = useState<Product[]>(
+    localStorage.getItem("carrito")
+      ? JSON.parse(localStorage.getItem("carrito")!)
+      : [],
+  );
 
   useEffect(() => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
@@ -29,13 +40,15 @@ export function CarritoProvider({ children }: CarritoProviderProps) {
     0,
   );
 
+  const vaciarCarrito = useCallback(() => {
+    setCarrito([]);
+  }, []);
+
   const aumentarCantidad = (id: number) => {
     setCarrito((actual) =>
       actual.map((item) =>
-        item.id === id
-          ? { ...item, cantidad: (item.cantidad ?? 1) + 1 }
-          : item
-      )
+        item.id === id ? { ...item, cantidad: (item.cantidad ?? 1) + 1 } : item,
+      ),
     );
     localStorage.setItem("carrito", JSON.stringify(carrito));
   };
@@ -45,16 +58,16 @@ export function CarritoProvider({ children }: CarritoProviderProps) {
       actual.map((item) =>
         item.id === id
           ? { ...item, cantidad: Math.max(1, (item.cantidad ?? 1) - 1) }
-          : item
-      )
+          : item,
+      ),
     );
     localStorage.setItem("carrito", JSON.stringify(carrito));
   };
 
-  const eliminarDelCarrito = (id:number) => {
+  const eliminarDelCarrito = (id: number) => {
     setCarrito((actual) => actual.filter((item) => item.id !== id));
     localStorage.setItem("carrito", JSON.stringify(carrito));
-  }
+  };
 
   const añadirAlCarrito = (nuevoItem: Product) => {
     setCarrito((actual) => {
@@ -90,7 +103,8 @@ export function CarritoProvider({ children }: CarritoProviderProps) {
         añadirAlCarrito,
         aumentarCantidad,
         disminuirCantidad,
-        eliminarDelCarrito, 
+        eliminarDelCarrito,
+        vaciarCarrito,
       }}
     >
       {children}

@@ -310,6 +310,10 @@
   width: 100%;
 }
 
+.carrito__resumen .carrito__boton + .carrito__boton {
+  margin-top: 12px;
+}
+
 .carrito__volver {
   display: inline-flex;
   min-height: 44px;
