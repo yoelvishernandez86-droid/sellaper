@@ -76,7 +76,7 @@ function Header() {
               <img src={favoriteIcon} alt="" aria-hidden="true" />
             </Link>
             <Link
-              to="/perfil"
+              to="/cuenta"
               className="icon-button"
               aria-label="Perfil de usuario"
             >

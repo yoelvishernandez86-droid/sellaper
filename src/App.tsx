@@ -13,6 +13,8 @@ import Carrito from "./pages/carrito";
 import AllCategories from "./pages/allCategories";
 import Checkout from "./pages/checkout";
 import CheckoutFinalizado from "./pages/checkoutFinalizado";
+import IniciarSesion from "./pages/iniciarSesion";
+import Cuenta from "./pages/cuenta";
 
 function App() {
   const { pathname } = useLocation();
@@ -33,6 +35,10 @@ function App() {
         <Route path="/todasCategorias" element={<AllCategories />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/checkout/finalizado" element={<CheckoutFinalizado />} />
+        <Route path="/cuenta" element={<Cuenta />} />
+        <Route path="/iniciar-sesion" element={<IniciarSesion />} />
+
+
       </Routes>
 
       <Footer />
