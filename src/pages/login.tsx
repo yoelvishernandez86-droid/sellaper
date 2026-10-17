@@ -35,6 +35,7 @@ function Login() {
           required
         />
         <div>
+          {usuarioIncorrecto && <p>Usuario o contraseña incorrectos.</p>}
           <button
             onClick={async () => {
               const inicioCorrecto = await userContext.iniciarSesion(
@@ -50,7 +51,7 @@ function Login() {
             Iniciar sesión
           </button>
 
-          {usuarioIncorrecto && <p>Usuario o contraseña incorrectos.</p>}
+          
         </div>
         <button onClick={() => userContext.setEsVisitante(true)}>
           Continuar sin iniciar sesión
