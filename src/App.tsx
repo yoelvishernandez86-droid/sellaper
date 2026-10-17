@@ -13,11 +13,26 @@ import Carrito from "./pages/carrito";
 import AllCategories from "./pages/allCategories";
 import Checkout from "./pages/checkout";
 import CheckoutFinalizado from "./pages/checkoutFinalizado";
-import IniciarSesion from "./pages/iniciarSesion";
+import Login from "./pages/login";
 import Cuenta from "./pages/cuenta";
+import { useContext } from "react";
+import { CuentaContext } from "./context/cuentaProvider";
 
 function App() {
   const { pathname } = useLocation();
+  const userContext = useContext(CuentaContext);
+
+  if (!userContext) {
+    throw new Error("App debe estar dentro de CuentaProvider");
+  }
+
+  if (userContext.cargando) {
+    return <p>Cargando...</p>;
+  }
+
+  if (!userContext.usuario && !userContext.esVisitante) {
+    return <Login />;
+  }
 
   return (
     <div className={pathname === "/" ? "App App--home" : "App"}>
@@ -36,9 +51,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/checkout/finalizado" element={<CheckoutFinalizado />} />
         <Route path="/cuenta" element={<Cuenta />} />
-        <Route path="/iniciar-sesion" element={<IniciarSesion />} />
-
-
+        <Route path="/iniciar-sesion" element={<Login />} />
       </Routes>
 
       <Footer />
