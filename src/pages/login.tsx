@@ -31,15 +31,25 @@ function Login() {
   );
   const [enviando, setEnviando] = useState(false);
   const envioEnCurso = useRef(false);
-  const [elementoEnfocado, setElementoEnfocado] = useState<EstadoMascota | null>(null);
-  const [botonSobrevolado, setBotonSobrevolado] = useState<MascotaBoton | null>(null);
-  const [mascotasListas, setMascotasListas] = useState<Partial<Record<EstadoMascota, boolean>>>({});
+  const [elementoEnfocado, setElementoEnfocado] =
+    useState<EstadoMascota | null>(null);
+  const [botonSobrevolado, setBotonSobrevolado] = useState<MascotaBoton | null>(
+    null,
+  );
+  const [mascotasListas, setMascotasListas] = useState<
+    Partial<Record<EstadoMascota, boolean>>
+  >({});
   const navigate = useNavigate();
   const mascotaSolicitada = botonSobrevolado ?? elementoEnfocado ?? "usuario";
-  const mascotaVisible = mascotasListas[mascotaSolicitada] ? mascotaSolicitada : "usuario";
+  const mascotaVisible = mascotasListas[mascotaSolicitada]
+    ? mascotaSolicitada
+    : "usuario";
 
   useEffect(() => {
-    localStorage.setItem("usuarioIncorrecto", JSON.stringify(usuarioIncorrecto));
+    localStorage.setItem(
+      "usuarioIncorrecto",
+      JSON.stringify(usuarioIncorrecto),
+    );
   }, [usuarioIncorrecto]);
 
   useEffect(() => {
@@ -49,13 +59,19 @@ function Login() {
     for (const [estado, src] of Object.entries(mascotas)) {
       const imagen = new Image();
       imagen.src = src;
-      void imagen.decode().then(() => {
-        if (montado) {
-          setMascotasListas((anteriores) => ({ ...anteriores, [estado]: true }));
-        }
-      }).catch(() => {
-        // Si una variante no carga, se conserva la ilustración inicial.
-      });
+      void imagen
+        .decode()
+        .then(() => {
+          if (montado) {
+            setMascotasListas((anteriores) => ({
+              ...anteriores,
+              [estado]: true,
+            }));
+          }
+        })
+        .catch(() => {
+          // Si una variante no carga, se conserva la ilustración inicial.
+        });
     }
 
     return () => {
@@ -72,7 +88,10 @@ function Login() {
     setUsuarioIncorrecto(false);
 
     try {
-      const inicioCorrecto = await userContext.iniciarSesion(usuario, contraseña);
+      const inicioCorrecto = await userContext.iniciarSesion(
+        usuario,
+        contraseña,
+      );
       setUsuarioIncorrecto(!inicioCorrecto);
       if (inicioCorrecto) navigate("/");
     } finally {
@@ -102,7 +121,10 @@ function Login() {
   const ocupado = enviando || userContext.cargando;
 
   return (
-    <main className={`login${userContext.esVisitante || userContext.usuario ? " login--en-tienda" : ""}`}>
+    <main
+      className={`login${userContext.esVisitante || userContext.usuario ? " login--en-tienda" : ""}`}
+    >
+      <p>El usuario es emilys y la contraseña emilyspass</p>
       <div className="login__contenedor">
         <div className="login__cabecera">
           <Link className="login__marca" to="/" aria-label="Sellaper, inicio">
@@ -112,13 +134,19 @@ function Login() {
               <span>Tu tienda online</span>
             </span>
           </Link>
-          <span className="login__lema">Un mundo de cosas que van contigo.</span>
+          <span className="login__lema">
+            Un mundo de cosas que van contigo.
+          </span>
         </div>
 
         <section className="login__panel" aria-labelledby="login-titulo">
           <div className="login__contenido">
             <p className="login__etiqueta">Tu espacio Sellaper</p>
-            <h1 id="login-titulo">Qué bueno<br />verte por aquí.</h1>
+            <h1 id="login-titulo">
+              Qué bueno
+              <br />
+              verte por aquí.
+            </h1>
             <p className="login__descripcion">
               Inicia sesión y sigue descubriendo lo que te gusta.
             </p>
@@ -149,7 +177,9 @@ function Login() {
                     onChange={(event) => setUsuario(event.target.value)}
                     onFocus={() => setElementoEnfocado("usuario")}
                     aria-invalid={usuarioIncorrecto || undefined}
-                    aria-describedby={usuarioIncorrecto ? "login-error" : undefined}
+                    aria-describedby={
+                      usuarioIncorrecto ? "login-error" : undefined
+                    }
                     disabled={ocupado}
                     required
                   />
@@ -170,7 +200,9 @@ function Login() {
                     onChange={(event) => setContraseña(event.target.value)}
                     onFocus={() => setElementoEnfocado("contraseña")}
                     aria-invalid={usuarioIncorrecto || undefined}
-                    aria-describedby={usuarioIncorrecto ? "login-error" : undefined}
+                    aria-describedby={
+                      usuarioIncorrecto ? "login-error" : undefined
+                    }
                     disabled={ocupado}
                     required
                   />
@@ -194,7 +226,8 @@ function Login() {
                 disabled={ocupado}
                 onFocus={() => setElementoEnfocado("bienvenida")}
                 onPointerEnter={(event) => {
-                  if (event.pointerType !== "touch") setBotonSobrevolado("bienvenida");
+                  if (event.pointerType !== "touch")
+                    setBotonSobrevolado("bienvenida");
                 }}
                 onPointerLeave={() => setBotonSobrevolado(null)}
                 onPointerCancel={() => setBotonSobrevolado(null)}
@@ -203,7 +236,9 @@ function Login() {
                 <img src={flechaIcono} alt="" aria-hidden="true" />
               </button>
 
-              <div className="login__separador"><span>o sigue a tu ritmo</span></div>
+              <div className="login__separador">
+                <span>o sigue a tu ritmo</span>
+              </div>
 
               <button
                 className="login__boton login__boton--invitado"
@@ -212,7 +247,8 @@ function Login() {
                 onClick={entrarComoInvitado}
                 onFocus={() => setElementoEnfocado("invitado")}
                 onPointerEnter={(event) => {
-                  if (event.pointerType !== "touch") setBotonSobrevolado("invitado");
+                  if (event.pointerType !== "touch")
+                    setBotonSobrevolado("invitado");
                 }}
                 onPointerLeave={() => setBotonSobrevolado(null)}
                 onPointerCancel={() => setBotonSobrevolado(null)}
@@ -220,7 +256,9 @@ function Login() {
                 Entrar como invitado
                 <img src={flechaIcono} alt="" aria-hidden="true" />
               </button>
-              <p className="login__nota">Explora la tienda sin iniciar sesión.</p>
+              <p className="login__nota">
+                Explora la tienda sin iniciar sesión.
+              </p>
             </form>
           </div>
 
@@ -238,10 +276,14 @@ function Login() {
                 />
               ))}
             </div>
-            <p className="login__pie-ilustracion">Tus gustos. Tus descubrimientos. Tu Sellaper.</p>
+            <p className="login__pie-ilustracion">
+              Tus gustos. Tus descubrimientos. Tu Sellaper.
+            </p>
           </div>
         </section>
-        <p className="login__pie">Tecnología, ropa y lifestyle. Encuentra tu próximo favorito.</p>
+        <p className="login__pie">
+          Tecnología, ropa y lifestyle. Encuentra tu próximo favorito.
+        </p>
       </div>
     </main>
   );
