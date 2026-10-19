@@ -110,7 +110,10 @@ function Favorites() {
             </p>
           </div>
         </header>
-        <section className="favoritos__vacio" aria-labelledby="favoritos-vacios">
+        <section
+          className="favoritos__vacio"
+          aria-labelledby="favoritos-vacios"
+        >
           <div className="favoritos__ilustracion">
             <img
               className="favoritos__mascota"
@@ -129,7 +132,7 @@ function Favorites() {
             </p>
             <Link
               className="favoritos__boton favoritos__explorar"
-              to={"/productos"}
+              to={"/todasCategorias"}
             >
               Ver productos
               <img src={flechaIcono} alt="" aria-hidden="true" />
